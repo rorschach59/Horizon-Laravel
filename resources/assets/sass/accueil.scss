@@ -1,0 +1,85 @@
+
+/* SCSS Document */
+
+$red : rgba(191, 78, 78, 1);
+
+#planning {
+  padding-top: 5%;
+  .days	{
+    border: 2px double $red;
+    border-radius: 10px;
+    -webkit-box-shadow: 0 2px 1px 1px rgba(0,0,0,0.5);
+    box-shadow: 0 2px 1px 1px rgba(0,0,0,0.5);
+    font-size: 1.7em;
+    height: 600px;
+    padding: 1%;
+    @media screen and (min-width : 320px) and (max-width : 1024px) {
+    height: 300px;
+  }
+    strong {
+      color : $red;
+  }
+    h3 {
+      font-size: 0.8em;
+      color : black;
+      hr {
+        border-top : 1px solid black;
+    }
+  }
+    p {
+      color : rgb(90, 138, 214);
+      @media screen and (min-width : 320px) and (max-width : 1024px) {
+      font-size: 0.8em;
+    }
+  }
+    @media screen and (max-width : 425px)	{
+    p	{
+      font-size: 0.6em;
+  }
+  }
+    @media screen and (min-width : 1024px) {
+    width : (100% / 7);
+  }
+}
+  .list {
+    border: 2px double $red;
+    border-radius: 10px;
+    -webkit-box-shadow: 0 2px 1px 1px rgba(0,0,0,0.5);
+    box-shadow: 0 2px 1px 1px rgba(0,0,0,0.5);
+
+    // background-color: rgba(183,183,183,0.5);
+    // border: 1px solid white;
+    // border-radius: 10px;
+    height: 600px;
+    @media screen and (min-width : 320px) and (max-width : 1024px) {
+    height: 300px;
+    margin-top: 5%;
+  }
+    hr {
+      margin-left: 10%;
+      margin-right: 10%;
+  }
+    li {
+      list-style-type: thai;
+      list-style-type: -moz-lao;
+  }
+    a	{
+      font-size: 1.3em;
+      color : black;
+  }
+    a:hover {
+      color: $red;
+      font-weight: bold;
+  }
+    p	{
+      text-align: center;
+  }
+}
+  // .streamer-list {
+  // 	margin-top: 5%;
+  // }
+  .programming {
+    width : 100%;
+  //background-color: rgba(42,42,42,0.50);
+}
+}
