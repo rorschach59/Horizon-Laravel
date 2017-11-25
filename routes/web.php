@@ -16,3 +16,4 @@ Route::get('/', ['uses' => 'WelcomeController@index', 'as' => 'Accueil']);
 // Routes pour la partie user
 Auth::routes();
 
+Route::get('/ajout-planning', ['uses' => 'StreamersController@addPlanning', 'as' => 'addPlanning']);

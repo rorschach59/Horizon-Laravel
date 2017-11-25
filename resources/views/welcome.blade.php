@@ -22,16 +22,16 @@
                         <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                        <li>Camak</li>
-                        <li>Jiji</li>
-                        <li>Zerator</li>
-                        <li>Skyyart</li>
+                        @foreach($streamers as $streamer)
+                            <li>{{ $streamer->username }}</li>
+                        @endforeach
                     </ul>
                 </div>
+                <br/>
                 <div class="col-lg-12 col-xs-12 programmation">
                     @foreach($days as $day)
                     <div class="col-lg-1 col-sm-3 col-xs-4 days text-center">
-                        <h3 class="<?php $day ?>"><?php echo $day; ?> <hr/></h3>
+                        <h3 class="{{ $day }}">{{ $day }} <hr/></h3>
                         <div id="lundi"></div>
 
                     </div>
@@ -39,8 +39,6 @@
                 </div>
             </div>
         </div>
-
-        {{ Html::image('img/footer.png', 'footer', array('width' => 1050)) }}
 
     </section>
 

@@ -114,6 +114,9 @@
         </div>
 
     </body>
+    <br/>
+
+    {{ Html::image('img/footer.png', 'footer', array('width' => 1050, 'class' => 'center-block')) }}
 
     @yield('javascript')
     {!! Html::script('js/app.js') !!}
