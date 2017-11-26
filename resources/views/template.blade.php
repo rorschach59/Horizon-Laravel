@@ -88,7 +88,11 @@
                                         <li>
                                             <a class="active" href="">Mon compte</a>
                                         </li>
-
+                                        @if(Auth::user()->id_streamer)
+                                            <li>
+                                                <a href="{{ route('showPlanningForm') }}">Mettre à jour le planning</a>
+                                            </li>
+                                        @endif
                                         <li>
                                             <a href="{{ route('logout') }}"
                                                onclick="event.preventDefault();

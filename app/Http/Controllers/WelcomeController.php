@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Repositories\StreamersRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class WelcomeController extends Controller
 {
@@ -31,6 +32,12 @@ class WelcomeController extends Controller
 //        $streamer = $this->streamersRepository->getById('1');
 
 //        return view('welcome',  compact('streamers','streamer'));
+
+        // Récupére l'utilisateur connecté
+//        $user = Auth::user();
+//        if ($user->getAttributes()['id_streamer'] != 0) { var_dump('toto'); }
+
+
         return view('welcome',  compact('streamers'));
     }
 }

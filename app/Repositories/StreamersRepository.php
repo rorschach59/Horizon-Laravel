@@ -19,14 +19,6 @@ class StreamersRepository {
         $this->streamers = $streamers;
     }
 
-    /**
-     * @return Streamers
-     */
-    public function getStreamers()
-    {
-        return $this->streamers;
-    }
-
     public function get()
     {
         // Retourne tout les streamers
@@ -38,5 +30,4 @@ class StreamersRepository {
         // Récupère un streamer en particulier
         return $streamers = \DB::table('streamers')->whereId($id)->first();
     }
-
 }

@@ -13,7 +13,7 @@ class PlanningAddRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,14 @@ class PlanningAddRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+             'id_streamer' => 'required|max:255',
+             'date' => 'required|max:255',
+//             'week' => 'required|max:255',
+//             'planning_year' => 'required|max:255',
+//             'planning_month' => 'required|max:255',
+             'hours' => 'required|max:255',
+             'text' => 'required|max:255',
+             'image' => 'required|image',
         ];
     }
 }
