@@ -27,6 +27,9 @@ class CreatePlanningTable extends Migration
             $table->foreign('id_streamer')->references('id')->on('streamers')
                 ->onDelete('restrict')
                 ->onUpdate('restrict');
+            $table->foreign('id_image')->references('id')->on('images')
+                ->onDelete('restrict')
+                ->onUpdate('restrict');
         });
     }
 

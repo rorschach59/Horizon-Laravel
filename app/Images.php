@@ -2,30 +2,30 @@
 /**
  * Created by PhpStorm.
  * User: Admin-Rémi
- * Date: 25/11/2017
- * Time: 16:03
+ * Date: 05/12/2017
+ * Time: 19:31
  */
 
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Planning extends Model
+class Images extends Model
 {
 
-    public $table = "planning";
+    public $table = "images";
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'id_streamer', 'planning_day', 'week', 'planning_year', 'planning_month', 'hours', 'text', 'image'
+        'id_streamer','image'
     ];
 
     public function planning()
     {
-        return $this->hasMany('App\Planning');
+        return $this->hasMany('App\Images');
     }
 
 }

@@ -35,18 +35,18 @@ class StreamersController extends Controller
 
         if($image->isValid())
         {
-            $chemin = config('images.path');
+            $user = Auth::user();
+
+            $chemin = config('images.path').'/'.$user->getAttributes()['username'];
 
             $extension = $image->getClientOriginalExtension();
-
-            $user = Auth::user();
 
             // Récupére la valeur de l'input date
             $date = $request->only('date');
             $week = date('W',strtotime ($date['date']));
 
             do {
-                $nom = $user->getAttributes()['username'] .'_'.$week.'.'. $extension;
+                $nom = $week.'.'. $extension;
             } while(file_exists($chemin . '/' . $nom));
 
             if($image->move($chemin, $nom)) {
@@ -54,8 +54,5 @@ class StreamersController extends Controller
                 return redirect()->back()->withOk("Votre planning a été mis à jour.");
             }
         }
-
-
-
     }
 }

@@ -12,7 +12,7 @@
 */
 
 Route::get('/', ['uses' => 'WelcomeController@index', 'as' => 'Accueil']);
-Route::get('/interdit', function() {
+Route::get('interdit', function() {
         return view('notAccess');
     }
 );
@@ -22,3 +22,5 @@ Auth::routes();
 
 Route::get('ajout-planning', ['uses' => 'StreamersController@showPlanningForm', 'as' => 'showPlanningForm']);
 Route::post('ajout-planning', ['uses' => 'StreamersController@addPlanning', 'as' => 'addPlanning']);
+
+Route::get('compte', ['uses' => 'AccountController@showAccount', 'as' => 'compte']);

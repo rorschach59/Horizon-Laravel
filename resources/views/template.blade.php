@@ -86,7 +86,7 @@
 
                                     <ul class="dropdown-menu" role="menu">
                                         <li>
-                                            <a class="active" href="">Mon compte</a>
+                                            <a class="active" href="{{ route('compte') }}">Mon compte</a>
                                         </li>
                                         @if(Auth::user()->id_streamer)
                                             <li>
@@ -114,6 +114,18 @@
         </header>
 
         <div class="container">
+            @if(Route::current()->uri() === 'compte')
+                <div class="col-lg-3 parameters">
+                    <h3 class="text-center"> <i class="fa fa-cog" aria-hidden="true"></i> <u>Paramètres</u></h3>
+                    <ul class="">
+                        <li id="profil" ><a href="">Profil</a></li>
+                        <li id="preferences" ><a href="">Préférences</a></li>
+                        <li id="security" ><a href="">Sécurité</a></li>
+                    </ul>
+                    <br>
+                    <h4 class="text-center"><a href="?page=39"> <i class="fa fa-power-off" aria-hidden="true"></i> Déconnexion</a></h4>
+                </div>
+            @endif
             @yield('contenu')
         </div>
 

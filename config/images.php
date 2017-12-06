@@ -9,6 +9,6 @@
 return [
 
     // Défini le dossier public/uploads
-    'path' => 'uploads',
+    'path' => 'img/uploads',
 
 ];

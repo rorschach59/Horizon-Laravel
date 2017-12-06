@@ -9,26 +9,33 @@
 namespace App\Repositories;
 
 use App\Planning;
+use App\Images;
 
 class PlanningRepository
 {
 
     protected $planning;
+    protected $images;
 
-    public function __construct(Planning $planning)
+    public function __construct(Planning $planning, Images $images)
     {
         $this->planning = $planning;
+        $this->images = $images;
     }
 
-    public function savePlanning(Planning $planning, Array $inputs)
+    public function savePlanning(Planning $planning, Images $images, Array $inputs)
     {
 
-//        $inputs['image'] = 'taboucheaude';
         $dateExplode = explode('-', $inputs['date']);
         $inputs['planning_year'] = $dateExplode[0];
         $inputs['planning_month'] = $dateExplode[1];
         $inputs['planning_day'] = $dateExplode[2];
         $inputs['week'] = date('W',strtotime ($inputs['date']));
+
+        $images->id_streamer = $inputs['id_streamer'];
+        $images->image = $inputs['image'];
+
+        $images->save();
 
         $planning->id_streamer = $inputs['id_streamer'];
         $planning->planning_day = $inputs['planning_day'];
@@ -37,15 +44,18 @@ class PlanningRepository
         $planning->planning_month = $inputs['planning_month'];
         $planning->hours = $inputs['hours'];
         $planning->text = $inputs['text'];
-        $planning->image = $inputs['image'];
+        $planning->id_image = $images->id;
 
         $planning->save();
+
+
     }
 
     public function storePlanning(Array $inputs)
     {
         $planning = new $this->planning;
-        $this->savePlanning($planning, $inputs);
+        $images = new $this->images;
+        $this->savePlanning($planning, $images, $inputs);
 
         return $planning;
 
