@@ -12,6 +12,7 @@
 */
 
 Route::get('/', ['uses' => 'WelcomeController@index', 'as' => 'Accueil']);
+Route::post('/', ['uses' => 'WelcomeController@postIndex', 'as' => 'Postacceuil']);
 Route::get('interdit', function() {
         return view('notAccess');
     }

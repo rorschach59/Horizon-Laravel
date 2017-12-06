@@ -42,11 +42,11 @@ class StreamersController extends Controller
             $extension = $image->getClientOriginalExtension();
 
             // Récupére la valeur de l'input date
-            $date = $request->only('date');
-            $week = date('W',strtotime ($date['date']));
+//            $date = $request->only('date');
+//            $week = date('W',strtotime ($date['date']));
 
             do {
-                $nom = $week.'.'. $extension;
+                $nom = str_random(10) . '.' . $extension;
             } while(file_exists($chemin . '/' . $nom));
 
             if($image->move($chemin, $nom)) {

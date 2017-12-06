@@ -7,7 +7,7 @@
  */
 ?>
 
-
+<?php var_dump($_POST); ?>
 @extends('template')
 
 @section('contenu')

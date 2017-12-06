@@ -10,6 +10,7 @@ namespace App\Repositories;
 
 use App\Planning;
 use App\Images;
+use Illuminate\Support\Facades\Auth;
 
 class PlanningRepository
 {
@@ -32,8 +33,16 @@ class PlanningRepository
         $inputs['planning_day'] = $dateExplode[2];
         $inputs['week'] = date('W',strtotime ($inputs['date']));
 
+//        $user = Auth::user();
+//        $chemin = config('images.path').'/'.$user->getAttributes()['username'];
+        $image = $inputs['image'];
+
+        $extension = $image->getClientOriginalExtension();
+
+        $nom = $nom = str_random(10) . '.' . $extension;
+
         $images->id_streamer = $inputs['id_streamer'];
-        $images->image = $inputs['image'];
+        $images->image = $nom;
 
         $images->save();
 
@@ -47,8 +56,6 @@ class PlanningRepository
         $planning->id_image = $images->id;
 
         $planning->save();
-
-
     }
 
     public function storePlanning(Array $inputs)

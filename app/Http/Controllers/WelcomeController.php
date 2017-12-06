@@ -40,4 +40,9 @@ class WelcomeController extends Controller
 
         return view('welcome',  compact('streamers'));
     }
+    public function postIndex()
+    {
+        var_dump($_POST);
+        return view('welcome');
+    }
 }

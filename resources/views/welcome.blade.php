@@ -16,24 +16,19 @@
     <section id="planning">
         <div class="container-fluid">
             <div class="row programming">
-                <div class="dropdown">
-                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        Streamers
-                        <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                {!! Form::open(['route' => 'Postacceuil', 'id' => 'formChangeProgram']) !!}
+                    <select name="streamers" id="streamers" onchange="document.getElementById('formChangeProgram').submit()">
                         @foreach($streamers as $streamer)
-                            <li>{{ $streamer->username }}</li>
+                            <option value="{{ $streamer->username }}">{{ $streamer->username }}</option>
                         @endforeach
-                    </ul>
-                </div>
+                    </select>
+                {!! Form::close() !!}
                 <br/>
                 <div class="col-lg-12 col-xs-12 programmation">
                     @foreach($days as $day)
                     <div class="col-lg-1 col-sm-3 col-xs-4 days text-center">
                         <h3 class="{{ $day }}">{{ $day }} <hr/></h3>
                         <div id="lundi"></div>
-
                     </div>
                     @endforeach
                 </div>
