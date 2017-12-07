@@ -16,12 +16,18 @@
     <section id="planning">
         <div class="container-fluid">
             <div class="row programming">
-                {!! Form::open(['route' => 'Postacceuil', 'id' => 'formChangeProgram']) !!}
-                    <select name="streamers" id="streamers" onchange="document.getElementById('formChangeProgram').submit()">
-                        @foreach($streamers as $streamer)
-                            <option value="{{ $streamer->username }}">{{ $streamer->username }}</option>
-                        @endforeach
-                    </select>
+                @foreach($streamers as $streamer)
+                <a href="?streamer={{ $streamer->username }}">{{ $streamer->username }}</a>
+                @endforeach
+                {!! Form::open(['route' => 'postForm', 'id' => 'formChangeProgram']) !!}
+                {!! Form::text('streamers', null, ['class' => 'form-control', 'placeholder' => 'Streamer name']) !!}
+                {!! $errors->first('streamers', '<small class="help-block">:message</small>') !!}
+                    {{--<select name="streamers" id="streamers" onchange="submitForm();">--}}
+                        {{--@foreach($streamers as $streamer)--}}
+                            {{--<option value="{{ $streamer->username }}">{{ $streamer->username }}</option>--}}
+                        {{--@endforeach--}}
+                    {{--</select>--}}
+                {!! Form::submit('Envoyer', ['class' => 'btn btn-primary pull-right']) !!}
                 {!! Form::close() !!}
                 <br/>
                 <div class="col-lg-12 col-xs-12 programmation">
@@ -40,4 +46,14 @@
 @endsection
 
 @section('javascript')
+
+    <script>
+        function submitForm() {
+            // $('#formChangeProgram').preventDefault();
+            $('#formChangeProgram').submit()
+        }
+
+    </script>
+
+
 @endsection

@@ -9,6 +9,7 @@
 namespace App\Repositories;
 
 use App\Streamers;
+use App\Planning;
 
 class StreamersRepository {
 
@@ -22,7 +23,7 @@ class StreamersRepository {
     public function get()
     {
         // Retourne tout les streamers
-        return $streamers = \DB::table('streamers')->get();
+        return \DB::table('streamers')->get();
     }
 
     public function getById($id)
@@ -30,4 +31,18 @@ class StreamersRepository {
         // Récupère un streamer en particulier
         return $streamers = \DB::table('streamers')->whereId($id)->first();
     }
+
+    public function getIdStreamer($name)
+    {
+        // Récupère un streamer en particulier
+        return \DB::table('streamers')
+            ->select('id')
+            ->where('username','=',$name)->first();
+    }
+
+    public function getStreamerPlanning($id)
+    {
+        return \DB::table('planning')->where('id_streamer','=',$id)->get();
+    }
+
 }
